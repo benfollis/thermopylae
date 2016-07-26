@@ -1,0 +1,15 @@
+[Unit]
+Description=thermopylae rest service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/thermopylae_rest
+# Fix the paths below:
+ExecStart=/usr/local/bin/thermopylae_rest -c /etc/thermopylae/config.json
+Restart=on-failure
+User=thermopylae
+
+[Install]
+WantedBy=multi-user.target

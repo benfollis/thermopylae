@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import http.server
+import socketserver
+from ism_io.config.configloader import ConfigLoader
+from ism_io.web.restserver import RestServer
+
+if __name__ == '__main__': # which it will:
+    config_loader = ConfigLoader()
+    config = config_loader.get_config()
+    handler = RestServer
+    handler.sockets = config["thermometers"]
+    port = config["rest"]["port"]
+    server = socketserver.TCPServer(('', port), handler)
+    print("Starting up server on port " + str(port))
+    server.serve_forever()
+    

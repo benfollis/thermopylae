@@ -6,7 +6,7 @@
 	{
 	    "name" : "office",
 	    "id" : "28-8000000476c9",
-	    "type" : "lunux_gpio",
+	    "type" : "linux_gpio",
 	    "precision" : 3
 	}
     ]
